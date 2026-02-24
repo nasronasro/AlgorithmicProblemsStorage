@@ -40,6 +40,8 @@
             lblTitle = new Label();
             label3 = new Label();
             csharpEditor1 = new AlgorithmicProblemsStorage.Presentation.Controls.CsharpEditor();
+            label1 = new Label();
+            textBox3 = new TextBox();
             SuspendLayout();
             // 
             // btnCancel
@@ -83,7 +85,7 @@
             // lblPlatform
             // 
             lblPlatform.AutoSize = true;
-            lblPlatform.Location = new Point(686, 12);
+            lblPlatform.Location = new Point(500, 14);
             lblPlatform.Name = "lblPlatform";
             lblPlatform.Size = new Size(69, 20);
             lblPlatform.TabIndex = 12;
@@ -92,7 +94,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(683, 54);
+            label2.Location = new Point(497, 56);
             label2.Name = "label2";
             label2.Size = new Size(72, 20);
             label2.TabIndex = 13;
@@ -101,7 +103,7 @@
             // cbPlatform
             // 
             cbPlatform.FormattingEnabled = true;
-            cbPlatform.Location = new Point(761, 12);
+            cbPlatform.Location = new Point(572, 11);
             cbPlatform.Name = "cbPlatform";
             cbPlatform.Size = new Size(186, 28);
             cbPlatform.TabIndex = 14;
@@ -109,7 +111,7 @@
             // cbDifficulty
             // 
             cbDifficulty.FormattingEnabled = true;
-            cbDifficulty.Location = new Point(761, 51);
+            cbDifficulty.Location = new Point(572, 53);
             cbDifficulty.Name = "cbDifficulty";
             cbDifficulty.Size = new Size(186, 28);
             cbDifficulty.TabIndex = 15;
@@ -118,14 +120,14 @@
             // 
             textBox1.Location = new Point(163, 12);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(406, 27);
+            textBox1.Size = new Size(311, 27);
             textBox1.TabIndex = 16;
             // 
             // textBox2
             // 
             textBox2.Location = new Point(163, 50);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(406, 27);
+            textBox2.Size = new Size(311, 27);
             textBox2.TabIndex = 17;
             // 
             // lblTitle
@@ -140,7 +142,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(112, 52);
+            label3.Location = new Point(119, 53);
             label3.Name = "label3";
             label3.Size = new Size(38, 20);
             label3.TabIndex = 19;
@@ -154,11 +156,30 @@
             csharpEditor1.Size = new Size(935, 379);
             csharpEditor1.TabIndex = 20;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(774, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(41, 20);
+            label1.TabIndex = 21;
+            label1.Text = "Tags:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(821, 12);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(116, 69);
+            textBox3.TabIndex = 22;
+            // 
             // AddAlgorithmForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(973, 545);
+            Controls.Add(textBox3);
+            Controls.Add(label1);
             Controls.Add(csharpEditor1);
             Controls.Add(label3);
             Controls.Add(lblTitle);
@@ -192,5 +213,7 @@
         private Label lblTitle;
         private Label label3;
         private Controls.CsharpEditor csharpEditor1;
+        private Label label1;
+        private TextBox textBox3;
     }
 }
