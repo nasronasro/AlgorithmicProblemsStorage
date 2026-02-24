@@ -24,6 +24,10 @@ namespace AlgorithmicProblemsStorage.Presentation.Controls
 
             ConfigureVisualStudioDark(editor);
         }
+        public string GetText()
+        {
+            return editor.Text;
+        }
        
         private static void ConfigureVisualStudioDark(Scintilla s)
         {

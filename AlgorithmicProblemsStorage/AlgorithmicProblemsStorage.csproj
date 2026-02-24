@@ -17,8 +17,4 @@
     <PackageReference Include="Scintilla5.NET" Version="6.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\Services\" />
-  </ItemGroup>
-
 </Project>

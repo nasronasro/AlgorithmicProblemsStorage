@@ -35,13 +35,13 @@
             label2 = new Label();
             cbPlatform = new ComboBox();
             cbDifficulty = new ComboBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtTitle = new TextBox();
+            txtLink = new TextBox();
             lblTitle = new Label();
             label3 = new Label();
-            csharpEditor1 = new AlgorithmicProblemsStorage.Presentation.Controls.CsharpEditor();
+            txtCode = new AlgorithmicProblemsStorage.Presentation.Controls.CsharpEditor();
             label1 = new Label();
-            textBox3 = new TextBox();
+            txtTags = new TextBox();
             SuspendLayout();
             // 
             // btnCancel
@@ -72,6 +72,7 @@
             btnConfirm.TabIndex = 1;
             btnConfirm.Text = "Add";
             btnConfirm.UseVisualStyleBackColor = false;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // lblCode
             // 
@@ -116,19 +117,19 @@
             cbDifficulty.Size = new Size(186, 28);
             cbDifficulty.TabIndex = 15;
             // 
-            // textBox1
+            // txtTitle
             // 
-            textBox1.Location = new Point(163, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(311, 27);
-            textBox1.TabIndex = 16;
+            txtTitle.Location = new Point(163, 12);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(311, 27);
+            txtTitle.TabIndex = 16;
             // 
-            // textBox2
+            // txtLink
             // 
-            textBox2.Location = new Point(163, 50);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(311, 27);
-            textBox2.TabIndex = 17;
+            txtLink.Location = new Point(163, 50);
+            txtLink.Name = "txtLink";
+            txtLink.Size = new Size(311, 27);
+            txtLink.TabIndex = 17;
             // 
             // lblTitle
             // 
@@ -148,13 +149,13 @@
             label3.TabIndex = 19;
             label3.Text = "Link:";
             // 
-            // csharpEditor1
+            // txtCode
             // 
-            csharpEditor1.Location = new Point(12, 95);
-            csharpEditor1.MinimumSize = new Size(200, 120);
-            csharpEditor1.Name = "csharpEditor1";
-            csharpEditor1.Size = new Size(935, 379);
-            csharpEditor1.TabIndex = 20;
+            txtCode.Location = new Point(12, 95);
+            txtCode.MinimumSize = new Size(200, 120);
+            txtCode.Name = "txtCode";
+            txtCode.Size = new Size(935, 379);
+            txtCode.TabIndex = 20;
             // 
             // label1
             // 
@@ -165,26 +166,26 @@
             label1.TabIndex = 21;
             label1.Text = "Tags:";
             // 
-            // textBox3
+            // txtTags
             // 
-            textBox3.Location = new Point(821, 12);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(116, 69);
-            textBox3.TabIndex = 22;
+            txtTags.Location = new Point(821, 12);
+            txtTags.Multiline = true;
+            txtTags.Name = "txtTags";
+            txtTags.Size = new Size(116, 69);
+            txtTags.TabIndex = 22;
             // 
             // AddAlgorithmForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(973, 545);
-            Controls.Add(textBox3);
+            Controls.Add(txtTags);
             Controls.Add(label1);
-            Controls.Add(csharpEditor1);
+            Controls.Add(txtCode);
             Controls.Add(label3);
             Controls.Add(lblTitle);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtLink);
+            Controls.Add(txtTitle);
             Controls.Add(cbDifficulty);
             Controls.Add(cbPlatform);
             Controls.Add(label2);
@@ -208,12 +209,12 @@
         private Label label2;
         private ComboBox cbPlatform;
         private ComboBox cbDifficulty;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtTitle;
+        private TextBox txtLink;
         private Label lblTitle;
         private Label label3;
-        private Controls.CsharpEditor csharpEditor1;
+        private Controls.CsharpEditor txtCode;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox txtTags;
     }
 }

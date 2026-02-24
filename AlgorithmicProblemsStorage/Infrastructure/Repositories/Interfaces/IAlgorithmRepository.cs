@@ -1,10 +1,10 @@
 ﻿using AlgorithmicProblemsStorage.Domain.Entities;
 
-namespace AlgorithmicProblemsStorage.Infrastructure.Repositories
+namespace AlgorithmicProblemsStorage.Infrastructure.Repositories.Interfaces
 {
     public interface IAlgorithmRepository
     {
-        void AddAlgo(Algorithm algo);
+        int AddAlgo(Algorithm algo);
         void AddTagAlgo(Algorithm algo, Tag tag);
     }
 }
