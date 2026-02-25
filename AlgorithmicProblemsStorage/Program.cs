@@ -3,7 +3,8 @@ using AlgorithmicProblemsStorage.Application.Services.Interfaces;
 using AlgorithmicProblemsStorage.Infrastructure.Data;
 using AlgorithmicProblemsStorage.Infrastructure.Repositories;
 using AlgorithmicProblemsStorage.Infrastructure.Repositories.Interfaces;
-using AlgorithmicProblemsStorage.Presentation.Forms.AlgorithmForms;
+using AlgorithmicProblemsStorage.Presentation.Controls;
+using AlgorithmicProblemsStorage.Presentation.Controls.AlgorithmControls;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AlgorithmicProblemsStorage
@@ -32,9 +33,15 @@ namespace AlgorithmicProblemsStorage
             services.AddScoped<IDifficultyServices, DifficultyServices>();
             services.AddScoped<IPlatformeServices, PlatformeServices>();
 
+            services.AddScoped<PanelSwitchServices>();
+
             //forms Injections
             services.AddTransient<MainForm>();
-            services.AddTransient<AddAlgorithmForm>();
+            //Control Injection
+            services.AddTransient<AlgorithmAddControl>();
+            services.AddTransient<AlgorithmShowControl>();
+            services.AddTransient<AlgorithmDashboard>();
+
             using var sp = services.BuildServiceProvider();
 
             System.Windows.Forms.Application.Run(sp.GetRequiredService<MainForm>());

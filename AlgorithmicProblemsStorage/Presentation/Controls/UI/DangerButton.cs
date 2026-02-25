@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UIGlobalUse
-{
+namespace UIGlobalUse { 
     public class DangerButton: BaseButton
     {
         public DangerButton()

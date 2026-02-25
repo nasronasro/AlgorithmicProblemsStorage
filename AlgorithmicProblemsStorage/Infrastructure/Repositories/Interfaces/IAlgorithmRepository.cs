@@ -6,5 +6,6 @@ namespace AlgorithmicProblemsStorage.Infrastructure.Repositories.Interfaces
     {
         int AddAlgo(Algorithm algo);
         void AddTagAlgo(Algorithm algo, Tag tag);
+        List<Algorithm> GetAllAlgorithms();
     }
 }

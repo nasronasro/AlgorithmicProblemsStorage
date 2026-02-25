@@ -48,5 +48,31 @@ namespace AlgorithmicProblemsStorage.Infrastructure.Repositories
             cmd.ExecuteNonQuery();
         }
 
+        public List<Algorithm> GetAllAlgorithms()
+        {
+            List<Algorithm> algos = new();
+            const string query = @"Select Id, Title, PublishedAt, Link, DifficultyId, PlatformId, Code from Algorithm";
+            using var con = _factory.Create();
+            using var cmd = new SqlCommand(query, con);
+            con.Open();
+            var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Algorithm algo = new Algorithm
+                {
+                    Id = dr.GetInt32("Id"),
+                    Title = dr.GetString("Title"),
+                    CreatedAt = dr.GetDateTime("PublishedAt").ToString(),
+                    Link = dr.GetString("Link"),
+                    DifficultyId = dr.GetByte("DifficultyId"),
+                    PlatformId = dr.GetInt32("PlatformId"),
+                    Code = dr.GetString("Code")
+                };
+                algos.Add(algo);
+            }
+
+            return algos;
+        }
     }
 }

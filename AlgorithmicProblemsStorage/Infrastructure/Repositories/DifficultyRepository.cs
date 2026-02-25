@@ -13,6 +13,29 @@ namespace AlgorithmicProblemsStorage.Infrastructure.Repositories
         private readonly ISqlConnectionFactory _factory;
 
         public DifficultyRepository(ISqlConnectionFactory factory) => _factory = factory;
+
+        public Dictionary<int, String> GetAllDifficulties()
+        {
+            Dictionary<int,String> difficultyList = new();
+            const string query = "select Id, Name from Difficulty";
+            using var con = _factory.Create();
+            using var cmd = new SqlCommand(query, con);
+
+            con.Open();
+            using var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                var diff =  new Difficulty
+                {
+                    Id = (int)dr.GetByte(0),
+                    Name = dr.GetString(1)
+                };
+                difficultyList.Add(diff.Id, diff.Name);
+            }
+            return difficultyList;
+        }
+
         public Difficulty? GetDifficultyByName(string name)
         {
             const string query = "select Id, Name from Difficulty where Name = @Name";

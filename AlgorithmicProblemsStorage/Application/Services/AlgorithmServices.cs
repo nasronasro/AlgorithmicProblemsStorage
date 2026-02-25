@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿
 using AlgorithmicProblemsStorage.Application.Services.Interfaces;
 using AlgorithmicProblemsStorage.Domain.Entities;
 using AlgorithmicProblemsStorage.Infrastructure.Repositories.Interfaces;
+using AlgorithmicProblemsStorage.Application.Dtos;
+using AlgorithmicProblemsStorage.Application.Mappers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AlgorithmicProblemsStorage.Application.Services
 {
     internal class AlgorithmServices : IAlgorithmServices
     {
-        IAlgorithmRepository _algoRepository;
-        ITagRepository _tagRepository;
-        public AlgorithmServices(IAlgorithmRepository algoRepository, ITagRepository tagRepository)
+        private readonly IAlgorithmRepository _algoRepository;
+        private readonly ITagRepository _tagRepository;
+        private readonly IDifficultyRepository _difficultyRepository;
+        private readonly IPlatformeRepository _platformRepository;
+        public AlgorithmServices(IServiceProvider sp)
         {
-            _algoRepository = algoRepository;
-            _tagRepository = tagRepository;
+            _algoRepository = sp.GetRequiredService<IAlgorithmRepository>();
+            _tagRepository = sp.GetRequiredService<ITagRepository>();
+            _difficultyRepository = sp.GetRequiredService<IDifficultyRepository>();
+            _platformRepository = sp.GetRequiredService<IPlatformeRepository>();
         }
         public void AddAlgorithm(Algorithm algo)
         {
@@ -40,5 +44,24 @@ namespace AlgorithmicProblemsStorage.Application.Services
             }
 
         }
+
+        public List<AlgoDisplayDto> GetAlgorithms()
+        {
+            List<AlgoDisplayDto> algosDisplay = new();
+            Dictionary<int, string> DifficultyList = _difficultyRepository.GetAllDifficulties();
+            Dictionary<int, string> PlatformeList = _platformRepository.GetAllPlatformes();
+            foreach(var algo in _algoRepository.GetAllAlgorithms())
+            {
+                var algoDisplay = AlgorithmeMappers.MapAlgorithmToAlgoDisplayDto(algo);
+                string? diffStr, platformStr;
+                DifficultyList.TryGetValue(algo.DifficultyId, out diffStr);
+                PlatformeList.TryGetValue(algo.PlatformId, out platformStr);
+                algoDisplay.Difficulty = diffStr;
+                algoDisplay.Platforme = platformStr;
+                algosDisplay.Add(algoDisplay);
+            }
+            return algosDisplay;
+        }
+
     }
 }

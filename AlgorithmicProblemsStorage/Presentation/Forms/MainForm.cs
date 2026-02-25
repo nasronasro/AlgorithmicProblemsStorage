@@ -1,20 +1,35 @@
-using AlgorithmicProblemsStorage.Presentation.Forms.AlgorithmForms;
+using AlgorithmicProblemsStorage.Application.Services;
+using AlgorithmicProblemsStorage.Presentation.Controls;
+using AlgorithmicProblemsStorage.Presentation.Controls.AlgorithmControls;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AlgorithmicProblemsStorage
 {
     public partial class MainForm : Form
     {
         private readonly IServiceProvider _service;
+        private readonly PanelSwitchServices panelService;
         public MainForm(IServiceProvider service)
         {
             InitializeComponent();
             _service = service;
+            panelService = _service.GetRequiredService<PanelSwitchServices>();
         }
 
-        private void btnAddAlgo_Click(object sender, EventArgs e)
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
         {
-            AddAlgorithmForm addForm = new(_service);
-            addForm.ShowDialog();
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadDashboard();
+        }
+        private void LoadDashboard()
+        {
+            var dashboardView = _service.GetRequiredService<AlgorithmDashboard>();
+            dashboardView.pnlContent = pnlContent;
+            panelService.ShowScreen(dashboardView, pnlContent);
         }
     }
 }

@@ -8,5 +8,6 @@ namespace AlgorithmicProblemsStorage.Infrastructure.Repositories.Interfaces
     public interface IPlatformeRepository
     {
         Platforme? GetPlatformeByName(string name);
+        Dictionary<int,string> GetAllPlatformes();
     }
 }

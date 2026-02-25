@@ -5,18 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using AlgorithmicProblemsStorage.Application.Services;
 using AlgorithmicProblemsStorage.Application.Services.Interfaces;
 using AlgorithmicProblemsStorage.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AlgorithmicProblemsStorage.Presentation.Forms.AlgorithmForms
+namespace AlgorithmicProblemsStorage.Presentation.Controls
 {
-    public partial class AddAlgorithmForm : Form
+    public partial class AlgorithmAddControl : UserControl
     {
         private readonly IAlgorithmServices algoServices;
         private readonly IDifficultyServices difficultyServices;
         private readonly IPlatformeServices platformeServices;
-        public AddAlgorithmForm(IServiceProvider service)
+        public AlgorithmAddControl(IServiceProvider service)
         {
             InitializeComponent();
             algoServices = service.GetRequiredService<IAlgorithmServices>();
@@ -25,7 +26,6 @@ namespace AlgorithmicProblemsStorage.Presentation.Forms.AlgorithmForms
             FillDifficultyCb();
             FillPlatformCb();
         }
-
         private void FillDifficultyCb()
         {
             cbDifficulty.Items.Add("Easy");
@@ -39,21 +39,6 @@ namespace AlgorithmicProblemsStorage.Presentation.Forms.AlgorithmForms
             cbPlatform.Items.Add("LeetCode");
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void AddAlgorithmForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-
-        }
         public static List<string> ParseTags(string input)
         {
             return input

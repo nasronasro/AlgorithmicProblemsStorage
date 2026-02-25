@@ -1,4 +1,7 @@
-﻿namespace AlgorithmicProblemsStorage
+﻿
+using UIGlobalUse;
+
+namespace AlgorithmicProblemsStorage
 {
     partial class MainForm
     {
@@ -28,37 +31,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAddAlgo = new UIGlobalUse.PrimaryButton();
+            pnlContent = new Panel();
             SuspendLayout();
             // 
-            // btnAddAlgo
+            // pnlContent
             // 
-            btnAddAlgo.BackColor = Color.FromArgb(52, 152, 219);
-            btnAddAlgo.FlatAppearance.BorderSize = 0;
-            btnAddAlgo.FlatStyle = FlatStyle.Flat;
-            btnAddAlgo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAddAlgo.ForeColor = Color.White;
-            btnAddAlgo.Location = new Point(269, 161);
-            btnAddAlgo.Name = "btnAddAlgo";
-            btnAddAlgo.Size = new Size(153, 48);
-            btnAddAlgo.TabIndex = 0;
-            btnAddAlgo.Text = "Add Algorithm";
-            btnAddAlgo.UseVisualStyleBackColor = false;
-            btnAddAlgo.Click += btnAddAlgo_Click;
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(0, 0);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Size = new Size(982, 553);
+            pnlContent.TabIndex = 2;
+            pnlContent.Paint += pnlContent_Paint;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(750, 415);
-            Controls.Add(btnAddAlgo);
+            ClientSize = new Size(982, 553);
+            Controls.Add(pnlContent);
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private UIGlobalUse.PrimaryButton btnAddAlgo;
+        private Panel pnlContent;
     }
 }
