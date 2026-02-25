@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using AlgorithmicProblemsStorage.Application.Services.Interfaces;
+using AlgorithmicProblemsStorage.Presentation.Controls.AlgorithmControls;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AlgorithmicProblemsStorage.Presentation.Controls
@@ -14,11 +15,13 @@ namespace AlgorithmicProblemsStorage.Presentation.Controls
     {
         private readonly IServiceProvider _services;
         private readonly IAlgorithmServices algoServices;
+        private readonly IPanelServices panelServices;
         public AlgorithmShowControl(IServiceProvider services)
         {
             InitializeComponent();
             _services = services;
             algoServices = _services.GetRequiredService<IAlgorithmServices>();
+            panelServices = _services.GetRequiredService<IPanelServices>();
         }
 
 
@@ -42,6 +45,12 @@ namespace AlgorithmicProblemsStorage.Presentation.Controls
         private void AlgorithmShowControl_Load(object sender, EventArgs e)
         {
             LoadAlgorithmes();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            var dashboard = _services.GetRequiredService<AlgorithmDashboard>();
+            panelServices.ShowScreen(dashboard);
         }
     }
 }

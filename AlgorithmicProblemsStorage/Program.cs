@@ -33,7 +33,7 @@ namespace AlgorithmicProblemsStorage
             services.AddScoped<IDifficultyServices, DifficultyServices>();
             services.AddScoped<IPlatformeServices, PlatformeServices>();
 
-            services.AddScoped<PanelSwitchServices>();
+            services.AddScoped<IPanelServices, PanelSwitchServices>();
 
             //forms Injections
             services.AddTransient<MainForm>();

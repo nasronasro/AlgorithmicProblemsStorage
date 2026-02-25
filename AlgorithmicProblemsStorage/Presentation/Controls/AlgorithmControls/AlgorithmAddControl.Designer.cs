@@ -41,7 +41,7 @@
             lblPlatform = new Label();
             lblCode = new Label();
             btnConfirm = new UIGlobalUse.PrimaryButton();
-            btnCancel = new UIGlobalUse.DangerButton();
+            btnReturn = new UIGlobalUse.DangerButton();
             SuspendLayout();
             // 
             // txtTags
@@ -158,19 +158,20 @@
             btnConfirm.Text = "Add";
             btnConfirm.UseVisualStyleBackColor = false;
             // 
-            // btnCancel
+            // btnReturn
             // 
-            btnCancel.BackColor = Color.FromArgb(231, 76, 60);
-            btnCancel.FlatAppearance.BorderSize = 0;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(800, 493);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(157, 53);
-            btnCancel.TabIndex = 23;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = false;
+            btnReturn.BackColor = Color.FromArgb(231, 76, 60);
+            btnReturn.FlatAppearance.BorderSize = 0;
+            btnReturn.FlatStyle = FlatStyle.Flat;
+            btnReturn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReturn.ForeColor = Color.White;
+            btnReturn.Location = new Point(800, 493);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(157, 53);
+            btnReturn.TabIndex = 23;
+            btnReturn.Text = "Return";
+            btnReturn.UseVisualStyleBackColor = false;
+            btnReturn.Click += btnReturn_Click;
             // 
             // AlgorithmAddControl
             // 
@@ -189,7 +190,7 @@
             Controls.Add(lblPlatform);
             Controls.Add(lblCode);
             Controls.Add(btnConfirm);
-            Controls.Add(btnCancel);
+            Controls.Add(btnReturn);
             Name = "AlgorithmAddControl";
             Size = new Size(988, 566);
             ResumeLayout(false);
@@ -211,6 +212,6 @@
         private Label lblPlatform;
         private Label lblCode;
         private UIGlobalUse.PrimaryButton btnConfirm;
-        private UIGlobalUse.DangerButton btnCancel;
+        private UIGlobalUse.DangerButton btnReturn;
     }
 }

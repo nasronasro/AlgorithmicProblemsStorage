@@ -41,7 +41,6 @@ namespace AlgorithmicProblemsStorage
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(982, 553);
             pnlContent.TabIndex = 2;
-            pnlContent.Paint += pnlContent_Paint;
             // 
             // MainForm
             // 

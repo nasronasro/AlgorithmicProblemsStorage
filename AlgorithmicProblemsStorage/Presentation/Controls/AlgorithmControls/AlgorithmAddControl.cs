@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using AlgorithmicProblemsStorage.Application.Services;
 using AlgorithmicProblemsStorage.Application.Services.Interfaces;
 using AlgorithmicProblemsStorage.Domain.Entities;
+using AlgorithmicProblemsStorage.Presentation.Controls.AlgorithmControls;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AlgorithmicProblemsStorage.Presentation.Controls
@@ -17,14 +18,18 @@ namespace AlgorithmicProblemsStorage.Presentation.Controls
         private readonly IAlgorithmServices algoServices;
         private readonly IDifficultyServices difficultyServices;
         private readonly IPlatformeServices platformeServices;
+        private readonly IPanelServices panelService;
+        private readonly IServiceProvider _sp;
         public AlgorithmAddControl(IServiceProvider service)
         {
             InitializeComponent();
             algoServices = service.GetRequiredService<IAlgorithmServices>();
             difficultyServices = service.GetRequiredService<IDifficultyServices>();
             platformeServices = service.GetRequiredService<IPlatformeServices>();
+            panelService = service.GetRequiredService<IPanelServices>();
             FillDifficultyCb();
             FillPlatformCb();
+            _sp = service;
         }
         private void FillDifficultyCb()
         {
@@ -109,6 +114,12 @@ namespace AlgorithmicProblemsStorage.Presentation.Controls
             algoServices.AddAlgorithm(algo);
 
             MessageBox.Show("Algorithm saved successfully.");
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            var dashboard = _sp.GetRequiredService<AlgorithmDashboard>();
+            panelService.ShowScreen(dashboard);
         }
     }
 }

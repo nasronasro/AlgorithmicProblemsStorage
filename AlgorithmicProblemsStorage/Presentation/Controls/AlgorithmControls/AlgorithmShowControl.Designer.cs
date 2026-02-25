@@ -34,6 +34,7 @@
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
+            btnReturn = new UIGlobalUse.DangerButton();
             SuspendLayout();
             // 
             // lstAlgorithms
@@ -47,7 +48,7 @@
             lstAlgorithms.Location = new Point(58, 49);
             lstAlgorithms.Name = "lstAlgorithms";
             lstAlgorithms.OwnerDraw = true;
-            lstAlgorithms.Size = new Size(877, 404);
+            lstAlgorithms.Size = new Size(877, 389);
             lstAlgorithms.TabIndex = 1;
             lstAlgorithms.UseCompatibleStateImageBehavior = false;
             lstAlgorithms.View = View.Details;
@@ -77,10 +78,26 @@
             columnHeader5.Text = "Link";
             columnHeader5.Width = 230;
             // 
+            // btnReturn
+            // 
+            btnReturn.BackColor = Color.FromArgb(231, 76, 60);
+            btnReturn.FlatAppearance.BorderSize = 0;
+            btnReturn.FlatStyle = FlatStyle.Flat;
+            btnReturn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReturn.ForeColor = Color.White;
+            btnReturn.Location = new Point(831, 444);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(157, 53);
+            btnReturn.TabIndex = 24;
+            btnReturn.Text = "Return";
+            btnReturn.UseVisualStyleBackColor = false;
+            btnReturn.Click += btnReturn_Click;
+            // 
             // AlgorithmShowControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnReturn);
             Controls.Add(lstAlgorithms);
             Name = "AlgorithmShowControl";
             Size = new Size(1000, 500);
@@ -96,5 +113,6 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
+        private UIGlobalUse.DangerButton btnReturn;
     }
 }

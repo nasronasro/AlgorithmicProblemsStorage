@@ -39,7 +39,7 @@
             btnAddAlgo.FlatStyle = FlatStyle.Flat;
             btnAddAlgo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAddAlgo.ForeColor = Color.White;
-            btnAddAlgo.Location = new Point(440, 205);
+            btnAddAlgo.Location = new Point(413, 191);
             btnAddAlgo.Name = "btnAddAlgo";
             btnAddAlgo.Size = new Size(153, 48);
             btnAddAlgo.TabIndex = 2;
@@ -54,7 +54,7 @@
             BtnDisplay.FlatStyle = FlatStyle.Flat;
             BtnDisplay.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             BtnDisplay.ForeColor = Color.White;
-            BtnDisplay.Location = new Point(430, 259);
+            BtnDisplay.Location = new Point(403, 245);
             BtnDisplay.Name = "BtnDisplay";
             BtnDisplay.Size = new Size(172, 50);
             BtnDisplay.TabIndex = 3;
